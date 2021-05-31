@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        p {
+            text-align: center;
+            font-size: 60px;
+            margin-top: 0px;
+        }
+
+        #text-center,
+        #text-center1 {
+            text-align: center;
+        }
+
+        input {
+            width: 200px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="demo"></p>
+    <div id="text-center1"></div>
+    <div id="text-center">
+        <input type="button" onclick="stoprun()" value="Start time">
+    </div>
+
+
+    <script>
+
+        // Set the date we're counting down to
+        // var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime(); 
+        // let distance = 10000;
+        // let countDownDate = new Date().getTime() + 10000;
+
+        // Update the count down every 1 second
+        // let x = setInterval(myTimes, 1000);
+
+
+        function myTimes() {
+            // Get today's date and time
+            let now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                document.getElementById("demo").innerHTML = "BOOOOOOOOOOOOM!";
+                playSound();
+                
+                document.querySelector('input').value = "Start again";
+                clearInterval(x);
+                document.getElementById("text-center1").innerHTML = "NẰM XUỐNG";
+                document.getElementById("text-center1").style.fontSize = '200px';
+            }
+        }
+
+        function playSound() {
+            const audio = new Audio('explosiveGrenade.mp3');
+            audio.play();
+        }
+
+        function stoprun() {
+            let input = document.querySelector('input');
+            if (input.value == "Stop time") {
+                input.value = "Continue time";
+                clearInterval(x);
+            } else if (input.value == "Continue time") {
+                input.value = "Stop time";
+                countDownDate = new Date().getTime() + distance;
+                x = setInterval(myTimes, 1000);
+            } else {
+                input.value = "Stop time";                           
+                document.getElementById("text-center1").innerHTML = "";
+                distance = 10000;  
+                countDownDate = new Date().getTime() + distance;  
+                x = setInterval(myTimes, 1000);
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
