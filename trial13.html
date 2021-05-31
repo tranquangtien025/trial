@@ -4,35 +4,6 @@
 <head>
     <meta content="charset=unicode">
 </head>
-<!-- <script Language="JavaScript">
-    mydate = new Date();
-    myday = mydate.getDay();
-    mymonth = mydate.getMonth() + 1;
-    myweekday = mydate.getDate();
-    weekday = myweekday;
-    myyear = 1900 + mydate.getYear();
-    myhours = mydate.getHours();
-    ampmhour = (myhours > 12) ? myhours - 12 : myhours;
-    ampm = (myhours <= 12) ? 'Buổi sáng ' : (myhours < 18 ? 'Buổi chiều ' : 'Buổi tối ');
-    mytime = mydate.getMinutes();
-    myminutes = ((mytime < 10) ? ':0' : ':') + mytime;
-    myseconds = ((mydate.getSeconds() < 10) ? ':0' : ':') + mydate.getSeconds();
-    if (myday == 0) {
-        day = " Chủ nhật, ";
-    } else if (myday == 1) {
-        day = " Thứ hai, ";
-    } else if (myday == 2) {
-        day = " Thứ ba, ";
-    } else if (myday == 3) {
-        day = " Thứ tư, ";
-    } else if (myday == 4) {
-        day = " Thứ năm, ";
-    } else if (myday == 5) {
-        day = " Thứ sáu, ";
-    } else if (myday == 6) {
-        day = " Thứ bảy, ";
-    }
-</script> -->
 
 <body>    
     <p id="demo1"></p>
@@ -94,15 +65,13 @@
                 day = " Thứ bảy, ";
             }
 
-            // document.write("<b>" + "Bây giờ là: " + ampmhour + myminutes + myseconds + " " + ampm);
-            // document.write("-" + day + "Ngày " + myweekday + " ");
-            // document.write("Tháng " + mymonth + "  Năm " + myyear + "</font><br>");
             document.getElementById("demo2").innerHTML = 
                 "<b>" + "Bây giờ là: " + ampmhour + myminutes + myseconds + " " + ampm
                 + "-" + day + "Ngày " + myweekday + " "
                 + "Tháng " + mymonth + "  Năm " + myyear + "</font><br>";
         }
         let coutTime = setInterval(myTimes, 1000);
+        //I had removed some unnecessary code
     </script>
 </body>
 
